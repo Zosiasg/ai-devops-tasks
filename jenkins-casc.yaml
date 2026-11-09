@@ -1,0 +1,66 @@
+# Jenkins Configuration as Code (JCasC)
+
+jenkins:
+  systemMessage: "Jenkins skonfigurowany przez JCasC"
+  numExecutors: 2
+  mode: NORMAL
+  scmCheckoutRetryCount: 2
+
+# Globalna konfiguracja narzędzi
+tool:
+  maven:
+    installations:
+      - name: "Maven"
+        home: "/opt/maven"
+
+  nodejs:
+    installations:
+      - name: "NodeJS"
+        home: "/opt/node"
+
+  dockerTool:
+    installations:
+      - name: "Docker"
+        home: "/usr"
+
+# Przykładowe zadanie Pipeline
+jobs:
+  - script: |
+      pipelineJob('example-pipeline') {
+        description('Przykladowy pipeline CI/CD')
+
+        definition {
+          cps {
+            script('''
+              pipeline {
+                agent any
+
+                options {
+                  timeout(time: 30, unit: 'MINUTES')
+                }
+
+                stages {
+                  stage('Build') {
+                    steps {
+                      echo 'Budowanie aplikacji'
+                    }
+                  }
+
+                  stage('Test') {
+                    steps {
+                      echo 'Uruchamianie testow'
+                    }
+                  }
+
+                  stage('Deploy') {
+                    steps {
+                      echo 'Wdrazanie aplikacji'
+                    }
+                  }
+                }
+              }
+            '''.stripIndent())
+            sandbox()
+          }
+        }
+      }
