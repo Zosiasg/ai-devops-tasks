@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+dist/
+
+# Zmienne środowiskowe i dane poufne
+.env
+.env.*
+!.env.example
+
+# Docker
+docker-compose.override.yml
+
+# MongoDB - lokalne dane i kopie zapasowe
+mongodb-data/
+mongo-data/
+dump/
+*.bson
+
+# Logi
+logs/
+*.log
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
+# IntelliJ IDEA
+.idea/
+*.iml
