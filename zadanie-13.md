@@ -30,8 +30,3 @@ Najważniejsze elementy:
 - `@returns` – opis zwracanej wartości i jej typu.
 - `Promise` – informacja, że funkcja zwraca wynik operacji asynchronicznej.
 
-## 4. Wnioski
-
-ChatGPT wygenerował dokumentację funkcji bez zmiany jej działania.
-
-**Wniosek:** JSDoc poprawia czytelność kodu, ułatwia jego utrzymanie oraz wspomaga podpowiedzi typów w środowiskach programistycznych.
